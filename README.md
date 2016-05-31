@@ -1,4 +1,4 @@
-# fis3-hook-node_modules
+# fis3-hook-sys_node_modules
 
 fis3 对npm的node_modules模块的支持(使用node运行环境的node_modules)
 
