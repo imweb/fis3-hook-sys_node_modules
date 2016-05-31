@@ -1,0 +1,27 @@
+{
+  "name": "fis3-hook-sys_node_modules",
+  "version": "0.0.1",
+  "description": "fis3 npm support",
+  "main": "index.js",
+  "keywords": [
+    "fis",
+    "css",
+    "rem"
+  ],
+  "bugs": {
+    "url": "https://github.com/imweb/fis3-hook-sys_node_modules/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imweb/fis3-hook-sys_node_modules.git"
+  },
+  "author": {
+    "name": "Fishine Yuan",
+    "email": "382184760@qq.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "require-relative": "^0.8.7",
+    "fis3-hook-commonjs": "^0.1.12"
+  }
+}
