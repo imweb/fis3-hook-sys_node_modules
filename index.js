@@ -77,19 +77,13 @@ var entry = module.exports = function (fis, opts) {
 };
 
 entry.defaultOptions = {
-    // 是否是发布模式, 否则是开发模式
-    isDist: false, 
-
-    // 非dist模式时使用的browser映射, 相当于覆盖package.json中的browser
+    // 相当于覆盖package.json中的browser
     // 例如直接使用react.min.js {react: 'dist/react.min.js'}
     browser: {}, 
 
-    // dist模式时使用的browser映射
-    distBrowser: {}, 
-
-    // dist时是否尝试使用dist/XX.min.js, 加快编译速度
+    // 是否尝试使用dist/XX.min.js, 加快编译速度
     // 可以将min文件取消babel/uglify:
     //      fis.match('node_modules/**.min.js', {optimizer: null, parser: null})
-    tryDistMin: true 
+    tryMin: false 
 };
 

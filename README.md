@@ -30,7 +30,9 @@ fis.unhook('components')
 
 使用node_modules
 ```js
-fis.hook('sys_node_modules')
+fis.hook('sys_node_modules', {
+    tryMin: fis.project.currentMedia() === 'dist' // 可选, 发布的时候直接使用min文件
+})
 ```
 
 为node_modules文件添加针对mod.js的转换
@@ -50,9 +52,7 @@ fis.match('/node_modules/**.min.js', {
 
 ## 配置项说明
 
-* `isDist` 默认为`false` 是否是发布模式, 否则是开发模式
-* `browser` `{Object}` 非dist模式时使用的browser映射, 相当于覆盖package.json中的browser
+* `browser` `{Object}` 相当于覆盖package.json中的browser
     * 例如直接使用react.min.js {react: 'dist/react.min.js'}
-* `distBrowser` `{Object}` dist模式时使用的browser映射
-* `tryDistMin` 默认为`true` dist时是否尝试使用dist/XX.min.js, 加快编译速度
+* `tryMin` 默认为`false` 是否尝试使用dist/XX.min.js, 加快编译速度(建议发布模式时使用)
 
