@@ -60,10 +60,10 @@ var entry = module.exports = function (fis, opts) {
         lookup.tryRootLookUp
     ];
 
-    //fis.on('lookup:file', onFileLookUp);
     fis.on('compile:standard', onJsStandard);
-    fis.on('release:end', function() {
-        resolver.clearCache();
+
+    fis.on('prepackager', function(ret) {
+        resolver.pushFiles(ret);
     });
 
     // 在编译之前才注册事件，应该比所有的 hook 都注册得晚。
