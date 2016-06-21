@@ -52,6 +52,7 @@ fis.match('/node_modules/**.min.js', {
 
 ## 配置项说明
 
+* `dev` `{String}` process.env.NODE_ENV值
 * `browser` `{Object}` 相当于覆盖package.json中的browser
     * 例如直接使用react.min.js {react: 'dist/react.min.js'}
 * `tryMin` 默认为`false` 是否尝试使用dist/XX.min.js, 加快编译速度(建议发布模式时使用)
