@@ -17,6 +17,8 @@ function tryNpmLookUp(info, file, opts) {
     }
 }
 
+var NODE_MODULE = 'fs|http|https|net|path|module|domain|os|dns|querystring|url'.split('|');
+
 // 最后一个响应函数。
 function onFileLookUp2(info, file) {
     var id = info.rest;
@@ -24,7 +26,7 @@ function onFileLookUp2(info, file) {
     if (/^([a-zA-Z0-9@][a-zA-Z0-9@\.\-_]*)(?:\/([a-zA-Z0-9@\/\.\-_]*))?$/.test(id) && !info.file && !info.isFISID) {
         var prefix = RegExp.$1;
         var key = file.subpath + id;
-        if (!notified[key]) {
+        if (!notified[key] && NODE_MODULE.indexOf(prefix) === -1) {
             notified[key] = true;
             fis.log.warn('Can\'t resolve `%s` in file [%s], did you miss `npm install %s`?', id, file.subpath, prefix);
         }
