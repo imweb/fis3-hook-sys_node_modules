@@ -73,6 +73,11 @@ var entry = module.exports = function (fis, opts) {
         notified = {};
         fis.removeListener('lookup:file', onFileLookUp2);
         fis.on('lookup:file', onFileLookUp2);
+
+        // 没有prepackager时不会触发prepackager事件
+        if (!fis.media().get('modules.prepackager')) {
+            fis.media().set('modules.prepackager', function() {});
+        }
     });
 
     fis.set('component.type', 'node_modules');
